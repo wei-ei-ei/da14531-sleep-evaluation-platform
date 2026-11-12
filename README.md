@@ -1,49 +1,51 @@
-# DA14531 Sleep Sensing Evaluation Platform
+**[简体中文](README.md) | [English](README.en.md)**
 
-DA14531 Sleep Sensing Evaluation Platform is an engineering project built around the Renesas DA14531 SmartBond TINY Module Development Kit. It combines off-the-shelf optical, motion and temperature sensors to demonstrate a complete BLE data path from physiological signal acquisition to sleep-related feature analysis.
+# DA14531 睡眠生理采集与算法验证平台
 
-The repository presents the project concept, technical architecture and public reference material. Firmware, applications and validation results will be added as the prototype develops.
+本项目围绕 Renesas DA14531 SmartBond TINY Module Development Kit，使用现成的光学、运动和温度传感器，演示从生理信号采集到睡眠相关特征分析的完整 BLE 数据链路。
 
-## Planned capabilities
+仓库目前用于发布项目概述、系统架构、技术参考和公开研究文献。固件、应用程序和验证结果将在原型开发过程中逐步加入。
 
-- PPG and motion acquisition through an I2C sensor bus.
-- Body-surface temperature trend measurement.
-- On-device heart rate, RR interval, HRV, activity and signal-quality features.
-- BLE raw-data and feature-data services.
-- Live visualization and CSV export on a phone or computer.
-- Replayable sleep and wake analysis, with light/deep sleep analysis treated as research-grade output.
-- Current-consumption characterization using SmartSnippets Toolbox Power Profiler.
+## 计划能力
 
-## System overview
+- 通过 I2C 传感器总线采集 PPG 和体动。
+- 测量体表温度趋势。
+- 在设备端提取心率、RR 间期、HRV、活动量和信号质量。
+- 提供原始数据和特征数据 BLE 服务。
+- 在手机或电脑端实时显示并导出 CSV。
+- 支持数据回放、睡眠/清醒分析，以及研究性浅睡/深睡分析。
+- 使用 SmartSnippets Toolbox Power Profiler 评估不同状态的电流消耗。
+
+## 系统概览
 
 ```mermaid
 flowchart LR
-    PPG["PPG module"] --> BUS["I2C sensor bus"]
-    IMU["3-axis accelerometer"] --> BUS
-    TEMP["Temperature sensor"] --> BUS
-    BUS --> MCU["DA14531 development kit\nBLE + feature extraction"]
-    MCU --> HOST["Phone or computer\nlive view + CSV"]
-    HOST --> ANALYSIS["Local or cloud analysis\nHRV + sleep features"]
-    PROFILER["SmartSnippets Power Profiler"] -. current validation .-> MCU
+    PPG["PPG 模块"] --> BUS["I2C 传感器总线"]
+    IMU["三轴加速度计"] --> BUS
+    TEMP["温度传感器"] --> BUS
+    BUS --> MCU["DA14531 开发套件\nBLE + 特征提取"]
+    MCU --> HOST["手机或电脑\n实时显示 + CSV"]
+    HOST --> ANALYSIS["本地或云端分析\nHRV + 睡眠特征"]
+    PROFILER["SmartSnippets 功耗分析"] -. 电流验证 .-> MCU
 ```
 
-## Repository contents
+## 仓库内容
 
-- [Project overview](docs/project-overview.md)
-- [System architecture](docs/architecture.md)
-- [Hardware platform](hardware/README.md)
-- [Firmware and SDK references](docs/firmware-references.md)
-- [Related research literature](docs/literature.md)
-- [Reference index](references/README.md)
+- [中文项目概述](docs/project-overview.zh-CN.md)
+- [系统架构](docs/architecture.md)
+- [硬件平台](hardware/README.md)
+- [固件与 SDK 参考](docs/firmware-references.md)
+- [中文相关研究文献](docs/literature.zh-CN.md)
+- [资料索引](references/README.md)
 
-## Project status
+## 项目状态
 
-The project is at the concept and technical-framework stage. The repository is intended for engineering documentation and educational collaboration. It does not contain a certified medical device, a commercial wearable design or clinical performance claims.
+项目目前处于概念和技术框架阶段。仓库用于工程记录、技术交流和教育演示，不包含已认证的医疗器械、商业可穿戴产品或临床性能声明。
 
-## Intended use and limits
+## 使用边界
 
-This project is for engineering evaluation, education and research prototyping. It is not intended for diagnosis, treatment or clinical decision-making. Heart rate, SpO2, temperature and sleep-stage outputs must not be presented as medical conclusions without appropriate validation and regulatory review.
+本项目用于工程评估、教学和研究原型。它不用于疾病诊断、治疗或临床决策。心率、血氧、温度和睡眠阶段结果，在没有完成适当验证和法规审查前，不得作为医学结论发布。
 
-## License and third-party material
+## 许可与第三方资料
 
-No open-source license has been applied to the original project material yet. Third-party SDKs, datasheets and papers remain subject to their own licenses and terms.
+项目原创内容目前尚未指定开源许可证。第三方 SDK、数据手册和论文分别遵循其原有许可和使用条款。

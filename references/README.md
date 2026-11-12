@@ -15,7 +15,7 @@
 
 ## Research literature
 
-See [Related Research Literature](../docs/literature.md) for the curated reading list and [sleep-tech.bib](sleep-tech.bib) for BibTeX entries.
+See [Related Research Literature](../docs/literature.md) for the English reading list, [中文文献](../docs/literature.zh-CN.md) for the Chinese version, and [sleep-tech.bib](sleep-tech.bib) for BibTeX entries.
 
 ## Redistribution note
 
