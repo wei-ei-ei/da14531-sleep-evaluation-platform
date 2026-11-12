@@ -1,0 +1,10 @@
+*.bin
+*.hex
+*.map
+*.o
+*.obj
+*.uvguix.*
+__pycache__/
+.DS_Store
+Thumbs.db
+*.log
